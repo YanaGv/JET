@@ -1,9 +1,8 @@
 package entity;
 
 
-public class Array<N extends Number>{
+public class Array{
     int[] array;
-
     public Array() {
         this.array = new int[0];
     }
