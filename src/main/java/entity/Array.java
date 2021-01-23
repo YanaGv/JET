@@ -1,28 +1,28 @@
 package entity;
 
-import java.awt.*;
 
-public class Array{
-    int size;
-    Integer[] values;
+public class Array<N extends Number>{
+    int[] array;
 
     public Array() {
-        values = new Integer[0];
-        size = 0;
+        this.array = new int[0];
     }
-    public Array(Integer firstNum) {
-        values = new Integer[1];
-        values[0] = firstNum;
-        size = 1;
+    public Array(int ... args) {
+        int size = args.length;
+        this.array = new int[size];
+        for(int i: args){
+            this.array[i] = args[i];
+        }
     }
-    public Integer getById(int id){
+    public int getById(int id){
         try {
-            return values[id];
+            return this.array[id];
         }catch (Exception ex){
-            System.out.println("Id overflow");
+            System.out.println("Array exception");
         }
         return 0;
     }
-
-
+    public int lenght(){
+        return this.array.length;
+    }
 }
