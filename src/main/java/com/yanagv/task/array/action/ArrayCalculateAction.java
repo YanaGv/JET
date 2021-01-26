@@ -1,56 +1,58 @@
 package com.yanagv.task.array.action;
 
+import com.yanagv.task.array.entity.CustomArray;
+
 public class ArrayCalculateAction {
-    public int min(int[] array) {
-        int minValue = array[0];
-        for (int element : array) {
-            if (minValue > element) {
-                minValue = element;
+    public int min(CustomArray array) {
+        int minValue = array.getElement(0);
+        for (int i = 1; i < array.length(); i++) {
+            if (minValue > array.getElement(i)) {
+                minValue = array.getElement(i);
             }
         }
         return minValue;
     }
 
-    public int max(int[] array) {
-        int maxValue = array[0];
-        for (int element : array) {
-            if (maxValue < element) {
-                maxValue = element;
+    public int max(CustomArray array) {
+        int maxValue = array.getElement(0);
+        for (int i = 1; i < array.length(); i++) {
+            if (maxValue < array.getElement(i)) {
+                maxValue = array.getElement(i);
             }
         }
         return maxValue;
     }
 
-    public double average(int[] array) {
+    public double average(CustomArray array) {
         int sum;
         double averageValue;
         sum = sum(array);
-        averageValue = (double) sum / array.length;
+        averageValue = (double) sum / array.length();
         return averageValue;
     }
 
-    public int sum(int[] array) {
+    public int sum(CustomArray array) {
         int sum = 0;
-        for (int element : array) {
-            sum += element;
+        for (int i = 0; i < array.length(); i++) {
+            sum += array.getElement(i);
         }
         return sum;
     }
 
-    public int countNegativeElements(int[] array) {
+    public int countNegativeElements(CustomArray array) {
         int count = 0;
-        for (int element: array){
-            if (element < 0){
+        for (int i = 0; i < array.length(); i++){
+            if (array.getElement(i) < 0){
                 count++;
             }
         }
         return count;
     }
 
-    public int countPositiveElements(int[] array) {
+    public int countPositiveElements(CustomArray array) {
         int count = 0;
-        for (int element: array){
-            if (element >= 0){
+        for (int i = 0; i < array.length(); i++){
+            if (array.getElement(i) >= 0){
                 count++;
             }
         }
